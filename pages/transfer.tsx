@@ -48,6 +48,12 @@ const Transfer: NextPage = () => {
     }
   }, [videoUrl, videoRef.current, capturing]);
 
+  useEffect(() => {
+    if (recordedChunks.length > 0) {
+      handlePlay();
+    }
+  }, [recordedChunks]);
+
   const handleStartCaptureClick = useCallback(() => {
     setCapturing(true);
     mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
@@ -72,12 +78,6 @@ const Transfer: NextPage = () => {
   const handleStopCaptureClick = useCallback(() => {
     mediaRecorderRef.current.stop();
     setCapturing(false);
-
-    // handlePlay();
-    // const url = URL.createObjectURL(blob);
-    // videoRef.current.src = url;
-    // videoRef.current.load();
-    // setVideoUrl(url);
   }, [mediaRecorderRef, webcamRef, setCapturing]);
 
   const handlePlay = useCallback(() => {
@@ -86,15 +86,9 @@ const Transfer: NextPage = () => {
         type: "video/webm",
       });
       const url = URL.createObjectURL(blob);
-      // videoRef.current.src = url;
-      // videoRef.current.load();
       setVideoUrl(url);
     }
   }, [recordedChunks]);
-
-  console.log(mainDiv.current);
-
-  let videoConstrains;
 
   const handleDownload = useCallback(() => {
     if (recordedChunks.length) {
@@ -112,6 +106,8 @@ const Transfer: NextPage = () => {
       // setRecordedChunks([]);
     }
   }, [recordedChunks]);
+
+  let videoConstrains;
 
   if (mainDiv) {
     videoConstrains = {
@@ -137,7 +133,7 @@ const Transfer: NextPage = () => {
         />
       )}
       {photoMade && imgSrc && <img src={imgSrc} />}
-      {!photoMade && (
+      {!photoMade && !(recordedChunks.length > 0) && (
         <>
           <div className="fixed z-30 bottom-32 w-full">
             <div className="mx-auto w-fit">
@@ -221,21 +217,40 @@ const Transfer: NextPage = () => {
         </div>
       )}
       {recordedChunks.length > 0 && !photoSelected && (
-        <div className="fixed z-30 bottom-28 w-full grid grid-cols-2 text center text-2xl text-white">
-          <button className="w-10 h-10 bg-emerald-700" onClick={handlePlay}>
-            aaaaa
-          </button>
-          <div className="border-2">
-            <ReactPlayer url={videoUrl} playing={true} loop={true} />
+        <>
+          <div style={{ transform: "scaleX(-1)" }}>
+            <video
+              src={videoUrl}
+              ref={videoRef}
+              loop={true}
+              datatype="video/webm"
+              className="border-2 transform"
+            />
           </div>
-        </div>
+          <div className="fixed z-30 bottom-28 w-full grid grid-cols-2 text center text-2xl text-white">
+            <div className="mx-auto w-fit">
+              <button
+                onClick={() => {
+                  window.URL.revokeObjectURL(videoUrl);
+                  setRecordedChunks([]);
+                  setVideoUrl("");
+                }}
+                className="rounded-xl bg-red-700 px-4 py-2"
+              >
+                Remove
+              </button>
+            </div>
+            <div className="mx-auto w-fit">
+              <button
+                onClick={() => {}}
+                className="rounded-xl bg-blue-700 px-4 py-2"
+              >
+                Proceed
+              </button>
+            </div>
+          </div>
+        </>
       )}
-      <video
-        src={videoUrl}
-        ref={videoRef}
-        datatype="video/webm"
-        className="border-2"
-      />
       <Navbar />
     </div>
   );
