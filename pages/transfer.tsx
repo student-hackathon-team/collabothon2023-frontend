@@ -12,9 +12,12 @@ const Transfer: NextPage = () => {
 
   return (
     <div>
-      {recordingMedia && <RecordMedia setrecording={setRecordingMedia} />}
+      <RecordMedia
+        setrecording={setRecordingMedia}
+        hideButtons={!recordingMedia}
+      />
       {!recordingMedia && <ProceedPayment />}
-      <Navbar />
+      {/* <Navbar /> */}
     </div>
   );
 };
