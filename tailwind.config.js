@@ -27,13 +27,23 @@ module.exports = {
         light: '#F3F0E9'
       },
       animation: {
-        riseModal: "riseModal 1s ease",
+        riseModal: "riseModal 0.8s ease",
+        expandList: "expandList 0.8s ease-in-out",
       },
       keyframes: {
         riseModal: {
           "0%": { transform: "translateY(-20px) scale(50%)", },
-          "50%": { transform: "translateY(200px) scale(80%)", },
-          "100%": { transform: "translateY(30px) scale(100%)", },
+          "50%": { transform: "translateY(200px) scale(75%)", },
+          "90%": { transform: "translateY(30px) scale(95%)", },
+          "100%": { transform: "translateY(0px) scale(100%)", },
+        },
+        expandList: {
+          "0%": { opacity: "0", transform: "translateY(0px) scale(50%)", height: "15%", },
+          "10%": { opacity: "100", transform: "translateY(0px) scale(100%)", height: "15%", },
+          "25%": { transform: "translateY(0px)", height: "15%", },
+          "30%": { transform: "translateY(0px)", height: "15%", },
+          "90%": { transform: "translateY(0px) scale(95%)", height: "100%", },
+          "100%": { transform: "translateY(0px) scale(100%)", },
         },
       },
     },
