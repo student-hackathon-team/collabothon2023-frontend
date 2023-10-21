@@ -4,6 +4,10 @@ import { Pie } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+ChartJS.overrides.pie.plugins.legend = {
+    position: 'chartArea'
+}
+
 export const data = {
     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
     datasets: [
@@ -32,5 +36,8 @@ export const data = {
 };
 
 export function SpendingChart() {
-    return <Pie data={data} />;
+    return <Pie data={data} options={{
+        responsive: false,
+
+    }} />;
 }

@@ -2,8 +2,8 @@ import {BiChart, BiCog, BiHome, BiUser} from "react-icons/bi";
 
 const AppNavigation = () => {
     return (
-        <nav className="absolute bottom-0 border-t py-1">
-            <div className="w-4/5 mx-auto grid grid-cols-4">
+        <nav className="fixed bottom-0 w-full h-12 bg-dark text-light border-t border-light/20 py-1">
+            <div className="w-4/5 mx-auto grid grid-cols-4 h-full items-center">
                 <div className="flex justify-center">
                     <BiHome className="w-7 h-7" />
                 </div>

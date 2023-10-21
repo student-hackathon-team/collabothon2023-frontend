@@ -27,7 +27,7 @@ const AppLayout: FC = ({children}) => {
     }, [])
 
     const appContent = (
-        <div className="w-full h-full relative">
+        <div className="w-full h-full relative pb-16">
             <AppHeader/>
             {children}
             <AppNavigation/>

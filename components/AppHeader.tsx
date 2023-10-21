@@ -1,14 +1,19 @@
 import {BiBell, BiBulb} from "react-icons/bi";
 import bankLogo from '../assets/img/bank_logo.svg'
+import palomaBitmoji from '../assets/img/bitmojis/paloma_bitmoji.png'
+
 const AppHeader = () => {
     return (
         <header className="sticky z-10 top-0 left-0 w-full h-16 border-b border-white/20 bg-dark">
-            <div className="h-full grid grid-cols-3 px-2">
+            <div className="h-full grid grid-cols-3 px-5">
                 <div className="flex items-center">
-                    <div className="relative h-12 w-14 flex items-center justify-center">
-                        <img className="absolute top-0 left-0 h-full" src={bankLogo.src} alt=""/>
-                        <span className="text-sm relative z-10 font-bold px-2 text-white bg-dark/90 rounded-xl">87</span>
+                    <div className="relative">
+                        <img className="w-10 object-contain rounded-full border-primary border-2" src={palomaBitmoji.src} alt=""/>
+                        <span className="block absolute bottom-1 left-3/4 px-1 py-0.5 bg-accent text-primary text-xs rounded-xl text">
+                            -69
+                        </span>
                     </div>
+
                 </div>
                 <div className="flex items-center justify-center">
                    <h3 className="font-primary font-semibold text-3xl">
