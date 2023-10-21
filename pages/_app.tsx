@@ -1,8 +1,13 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import TransferContextWrapper from "../context/transfer";
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <TransferContextWrapper>
+      <Component {...pageProps} />
+    </TransferContextWrapper>
+  );
 }
 
-export default MyApp
+export default MyApp;
