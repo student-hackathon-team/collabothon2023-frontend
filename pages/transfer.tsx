@@ -16,7 +16,7 @@ const Transfer: NextPage = () => {
         setrecording={setRecordingMedia}
         hideButtons={!recordingMedia}
       />
-      {!recordingMedia && <ProceedPayment />}
+      {!recordingMedia && <ProceedPayment setrecording={setRecordingMedia} />}
       {/* <Navbar /> */}
     </div>
   );

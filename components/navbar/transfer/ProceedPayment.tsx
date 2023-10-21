@@ -1,6 +1,13 @@
-type props = {};
+import { useRouter } from "next/router";
+import { useState } from "react";
+import FriendsList from "./FriendsList";
+
+type props = { setrecording: (arg: boolean) => void };
 
 const ProceedPayment: React.FC<props> = (props) => {
+  const [showFriends, setShowFriends] = useState<boolean>(false);
+  const router = useRouter();
+
   return (
     <div className="max-w-sm mx-auto font-primary text-dark  pb-30 absolute top-0 z-20  bg-black bg-opacity-20">
       <div className="  backdrop-blur-md h-screen p-5 ">
@@ -28,17 +35,43 @@ const ProceedPayment: React.FC<props> = (props) => {
           <div className="w-full border-2 h-fit bg-secondary bg-opacity-70 rounded-xl p-4  mt-10">
             <div className="pt-2 text-3xl text-center">Choose friend</div>
             <div className="mx-auto w-fit">
-              <button className="bg-purple rounded-xl w-40 h-12 mt-6">
+              <button
+                className="bg-purple rounded-xl w-40 h-12 mt-6"
+                onClick={() => {
+                  setShowFriends(true);
+                }}
+              >
                 Show List
               </button>
             </div>
           </div>
           <div className="w-full grid grid-cols-2 tex-center text-2xl text-white  mt-24 gap-4">
-            <button className="rounded-xl p-2 bg-primary">Cancel</button>
-            <button className="rounded-xl p-2 bg-primary">Proceed</button>
+            <button
+              className="rounded-xl p-2 bg-primary"
+              onClick={() => {
+                props.setrecording(true);
+              }}
+            >
+              Cancel
+            </button>
+            <button
+              className="rounded-xl p-2 bg-primary"
+              onClick={() => {
+                router.push("/");
+              }}
+            >
+              Proceed
+            </button>
           </div>
         </div>
       </div>
+      {showFriends && (
+        <FriendsList
+          hide={() => {
+            setShowFriends(false);
+          }}
+        />
+      )}
     </div>
   );
 };
