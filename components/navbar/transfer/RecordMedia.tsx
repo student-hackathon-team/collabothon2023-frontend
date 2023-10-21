@@ -3,6 +3,7 @@ import Webcam from "react-webcam";
 
 type props = {
   setrecording: (arg: boolean) => void;
+  hideButtons: boolean;
 };
 
 const RecordMedia: React.FC<props> = (props) => {
@@ -191,14 +192,14 @@ const RecordMedia: React.FC<props> = (props) => {
           </div>
         </>
       )}
-      {photoMade && photoSelected && (
+      {photoMade && photoSelected && !props.hideButtons && (
         <>
           <button
             onClick={() => {
               setPhotoMade(false);
               setImgSrc(null);
             }}
-            className="rounded-[50%] bg-red-800 bg-opacity-70 px-4 py-2 text-white fixed left-6 top-6 border-4 border-red-800"
+            className="rounded-[50%] bg-accent bg-opacity-70 px-4 py-2 text-white fixed left-6 top-6 border-4 border-accent"
           >
             X
           </button>
@@ -219,16 +220,6 @@ const RecordMedia: React.FC<props> = (props) => {
       )}
       {recordedChunks.length > 0 && !photoSelected && (
         <>
-          <button
-            onClick={() => {
-              window.URL.revokeObjectURL(videoUrl);
-              setRecordedChunks([]);
-              setVideoUrl("");
-            }}
-            className="rounded-[50%] z-30 bg-red-800 bg-opacity-70 px-4 py-2 text-white fixed left-6 top-6 border-4 border-red-800"
-          >
-            X
-          </button>
           <div style={{ transform: "scaleX(-1)" }}>
             <video
               src={videoUrl}
@@ -238,19 +229,34 @@ const RecordMedia: React.FC<props> = (props) => {
               className="border-2 transform"
             />
           </div>
-          <div className="fixed z-30 bottom-28 w-full grid grid-cols-2 text center text-2xl text-white">
-            <div className="mx-auto w-fit"></div>
-            <div className="mx-auto w-fit">
+          {!props.hideButtons && (
+            <>
               <button
                 onClick={() => {
-                  props.setrecording(false);
+                  window.URL.revokeObjectURL(videoUrl);
+                  setRecordedChunks([]);
+                  setVideoUrl("");
                 }}
-                className="rounded-xl bg-blue-700 px-4 py-2"
+                className="rounded-[50%] z-30 bg-accent bg-opacity-70 px-4 py-2 text-white fixed left-6 top-6 border-4 border-accent"
               >
-                Proceed
+                X
               </button>
-            </div>
-          </div>
+
+              <div className="fixed z-30 bottom-28 w-full grid grid-cols-2 text center text-2xl text-white">
+                <div className="mx-auto w-fit"></div>
+                <div className="mx-auto w-fit">
+                  <button
+                    onClick={() => {
+                      props.setrecording(false);
+                    }}
+                    className="rounded-xl bg-blue-700 px-4 py-2"
+                  >
+                    Proceed
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
         </>
       )}
     </div>

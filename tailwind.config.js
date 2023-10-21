@@ -25,7 +25,17 @@ module.exports = {
         purple: '#7C70B8',
         dark: '#3B424B',
         light: '#F3F0E9'
-      }
+      },
+      animation: {
+        riseModal: "riseModal 1s ease",
+      },
+      keyframes: {
+        riseModal: {
+          "0%": { transform: "translateY(-20px) scale(50%)", },
+          "50%": { transform: "translateY(200px) scale(80%)", },
+          "100%": { transform: "translateY(30px) scale(100%)", },
+        },
+      },
     },
   },
   plugins: [],
