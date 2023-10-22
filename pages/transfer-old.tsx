@@ -9,7 +9,7 @@ import ProceedPayment from "../components/navbar/transfer/ProceedPayment";
 import TransferConfirmation from "../components/navbar/transfer/TransferConfirmation";
 import TransferResult from "../components/navbar/transfer/TransferResult";
 
-const Transfer: NextPage = () => {
+const TransferOld: NextPage = () => {
   const [recordingMedia, setRecordingMedia] = useState<boolean>(true);
   const [askToConfirm, setAskToConfirm] = useState<boolean>(false);
   const [showResult, setShowResult] = useState<boolean>(false);
@@ -40,4 +40,4 @@ const Transfer: NextPage = () => {
   );
 };
 
-export default Transfer;
+export default TransferOld;

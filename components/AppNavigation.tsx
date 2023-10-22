@@ -43,12 +43,12 @@ const AppNavigation = () => {
     const {pathname} = useRouter();
 
     return (
-        <nav className="fixed bottom-0 w-full h-12 bg-white text-black border-t py-1">
+        <nav className="fixed bottom-0 w-full h-12 bg-dark text-light border-t border-light/20 py-1">
             <div className="w-4/5 mx-auto grid grid-cols-5 h-full items-center transform translate-y-[-16px]">
                 <LinksSlice linksSlice={links.slice(0, links.length/2)} pathname={pathname} />
                 <div className="flex items-center justify-center">
-                    <Link href="/transfer" className="rounded-full w-16 h-16 flex items-center justify-center bg-primary border-2 border-white transform translate-y-[-10px]">
-                        <BsCamera className="w-10 h-10 text-white" />
+                    <Link href="/transfer/record" className="rounded-full w-16 h-16 flex items-center justify-center bg-primary border-2 border-dark transform translate-y-[-10px]">
+                        <BsCamera className="w-10 h-10 text-dark" />
                     </Link>
                 </div>
                 <LinksSlice linksSlice={links.slice(links.length/2, links.length)} pathname={pathname} />
