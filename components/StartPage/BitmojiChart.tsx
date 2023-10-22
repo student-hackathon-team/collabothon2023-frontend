@@ -9,7 +9,7 @@ const BitmojiChart = () => {
                     (
                         <div className="">
                             <div className="flex items-end justify-center mb-2 border-b h-16">
-                                <div className="w-[5px] block from-secondary to-purple bg-gradient-to-t rounded-xl" style={{
+                                <div className="w-[5px] block  bg-white rounded-xl" style={{
                                     height: `${faker.number.int({ min: 20, max: 100 })}%`
                                 }}></div>
                             </div>

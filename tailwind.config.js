@@ -19,11 +19,11 @@ module.exports = {
         primary: '"Syne"'
       },
       colors: {
-        primary: '#FC993B',
+        primary: '#FEC051',
         secondary: '#B4B3EF',
         accent: '#5A3851',
         purple: '#7C70B8',
-        dark: '#3B424B',
+        dark: '#282930',
         light: '#F3F0E9'
       },
       animation: {

@@ -15,18 +15,25 @@ const Start: NextPage = () => {
                 boxSizing: 'border-box'
             }}>
                 <div className="mt-5 grid gap-10">
-                    <h2 className=" text-center rounded-xl bg-purple text-light pb-2">
+                    <h2 className=" text-center rounded-xl  text-light pb-2" style={{
+                        background: 'linear-gradient(90deg, rgba(181, 178, 241, 1) 13%, rgba(77, 55, 183, 1) 94%)'
+                    }}>
                         <span className="font-primary text-6xl">2137</span>
                          <span className="text-black/80 ml-2 text-xl text-light">PLN</span>
                     </h2>
-                    <Section title="Expenses">
-                        <SpendingChart />
-                    </Section>
-                    <div className="">
-                        <div className="border-t border-x border-primary py-1 rounded-t-lg bg-primary">
-                            <span className="block text-center text-accent font-primary">Your payments</span>
+                    <SpendingChart />
+                    <div className="mt-10">
+                        <div className="grid grid-cols-3">
+                            <div className="">
+                                <button className="bg-dark px-4 py-0.5 text-light rounded-2xl">Send money</button>
+                            </div>
                         </div>
-                        <div className="bg-light rounded-b-lg rounded-x-lg px-2 py-3">
+                    </div>
+                    <div className="">
+                        <div className=" py-1 rounded-t-lg bg-primary">
+                            <span className="block text-center text-[#504D81] font-primary font-bold px-5 py-0.5 bg-light/80 rounded-xl mx-20 mt-2">Your payments</span>
+                        </div>
+                        <div className="bg-light rounded-b-lg rounded-x-lg px-2 py-3 bg-primary">
                             <div className="grid gap-2">
                                 {new Array(3).fill(<HistoryItem />)}
                             </div>
@@ -40,7 +47,7 @@ const Start: NextPage = () => {
                     <div className="flex items-end w-full h-full">
                       <div className="w-full flex flex-col">
                           <div className="max-h-[20vh] w-full">
-                              <Wave fill='rgba(0, 0, 0, 0.2)'
+                              <Wave fill='rgba(241, 226, 223, 1)'
                                     paused={false}
                                     style={{ display: 'flex', width: '100%' }}
                                     options={{
@@ -51,7 +58,7 @@ const Start: NextPage = () => {
                                     }}
                               />
                           </div>
-                          <div className="bg-black/20 h-[25vh] w-full"></div>
+                          <div className="bg-[#f1e2df] h-[25vh] w-full"></div>
                       </div>
                     </div>
                 </div>
