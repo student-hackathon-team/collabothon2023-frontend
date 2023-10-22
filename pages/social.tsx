@@ -3,23 +3,24 @@ import AppLayout from "../components/AppLayout";
 import palomaBitmoji from '../assets/img/bitmojis/paloma_bitmoji.png'
 import friends, {exampleUser} from "../data/friends";
 import {BiPlus} from "react-icons/bi";
+import {BsPlug, BsPlus} from "react-icons/bs";
 
 const groups = [
-    {
-        name: 'Family',
-        members: new Array(10).fill(exampleUser),
-        balance: null
-    },
+    // {
+    //     name: 'Family',
+    //     members: new Array(10).fill(exampleUser),
+    //     balance: null
+    // },
     {
         name: 'Close friends',
         members: new Array(10).fill(exampleUser),
         balance: -5
     },
-    {
-        name: 'AV club',
-        members: new Array(10).fill(exampleUser),
-        balance: 20
-    }
+    // {
+    //     name: 'AV club',
+    //     members: new Array(10).fill(exampleUser),
+    //     balance: 20
+    // }
 ]
 
 const SocialPage: NextPage = () => {
@@ -106,7 +107,7 @@ const SocialPage: NextPage = () => {
                         <div className="px-5 mb-5">
                             <span className="text-xl">Your challenges</span>
                             <div className="mt-10 grid grid-cols-3 gap-y-4 gap-x-3">
-                                {new Array(6).fill((
+                                {new Array(2).fill((
                                     <div className="rounded-lg relative flex items-end pt-20">
                                         <img
                                             src="https://picsum.photos/300/400"
@@ -117,6 +118,37 @@ const SocialPage: NextPage = () => {
                                         </div>
                                     </div>
                                 ))}
+                                <div className="rounded-lg relative flex items-center justify-center border border-black/20">
+
+                                      <span className="w-10 h-10 bg-primary text-dark rounded-full items-center justify-center flex">
+                                                    <BiPlus className="w-7 h-7" />
+                                                </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="mt-10">
+                        <div className="px-5 mb-5">
+                            <span className="text-xl">Your wishlist</span>
+                            <table className="mt-5 align-middle w-full">
+                                {new Array(2).fill((
+                                    <tr>
+                                        <td className="w-20 py-1">
+                                            <img src="https://picsum.photos/400/300" alt="" className="w-20 rounded"/>
+                                        </td>
+                                        <td className="px-2">
+                                            <span className="">New bike</span>
+                                        </td>
+                                        <td className="text-right text-sm">
+                                            20/300 EUR
+                                        </td>
+                                    </tr>
+                                ))}
+                            </table>
+                            <div className="border-black/20 rounded-lg flex items-center justify-center">
+                                 <span className="w-10 h-10 bg-primary text-dark rounded-full items-center justify-center flex">
+                                                    <BiPlus className="w-7 h-7" />
+                                                </span>
                             </div>
                         </div>
                     </div>

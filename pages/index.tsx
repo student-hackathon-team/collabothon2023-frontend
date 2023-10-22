@@ -6,11 +6,12 @@ import AppLayout from "../components/AppLayout";
 import BitmojiChart from "../components/StartPage/BitmojiChart";
 import kubaBitmoji from '../../assets/img/bitmojis/kuba_bitmoji.png'
 import Section from "../components/Section";
+import Wave from "react-wavify";
 
 const Start: NextPage = () => {
   return (
         <AppLayout>
-            <div className="px-10" style={{
+            <div className="px-10 relative" style={{
                 boxSizing: 'border-box'
             }}>
                 <div className="mt-5 grid gap-10">
@@ -35,7 +36,25 @@ const Start: NextPage = () => {
                         <BitmojiChart />
                     </Section>
                 </div>
-
+                <div className="fixed bottom-0 left-0 w-full h-full z-[-1]">
+                    <div className="flex items-end w-full h-full">
+                      <div className="w-full flex flex-col">
+                          <div className="max-h-[20vh] w-full">
+                              <Wave fill='rgba(0, 0, 0, 0.2)'
+                                    paused={false}
+                                    style={{ display: 'flex', width: '100%' }}
+                                    options={{
+                                        height: 10,
+                                        amplitude: 20,
+                                        speed: 0.25,
+                                        points: 3
+                                    }}
+                              />
+                          </div>
+                          <div className="bg-black/20 h-[25vh] w-full"></div>
+                      </div>
+                    </div>
+                </div>
             </div>
         </AppLayout>
   );
