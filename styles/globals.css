@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Syne:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Poppins:wght@400;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -13,7 +13,7 @@ body, #__next {
 }
 
 body {
-  @apply bg-[#FAF5F4] text-dark;
+  @apply bg-white text-black;
 }
 
 a {

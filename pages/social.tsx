@@ -53,20 +53,20 @@ const SocialPage: NextPage = () => {
                 </div>
                 <span className="block text-center text-2xl font-primary mt-3">{exampleUser.name}</span>
                 <div className="flex justify-center">
-                    <span className="bg-orange-500/20 border border-primary px-2 py-0.5 rounded-xl">
+                    <span className="bg-orange-500/20 border border-orange-200 px-2 py-0.5 rounded-xl">
                         @{exampleUser.username}
                     </span>
                 </div>
                 <div className=" mt-5">
-                    <div className="px-5 mb-5">
-                        <span className="text-xl">Your groups</span>
+                    <div className="px-5">
+                        <span className="text-xl px-2 py-0.5 bg-[#EAEFFE] text-primary rounded-lg">Your groups</span>
                     </div>
-                    <div className="grid gap-5">
+                    <div className="mt-8 grid gap-5">
                         {
                             groups.map(group => (
-                                <div className="rounded mx-5 border bg-[#3b9687] relative">
+                                <div className="rounded mx-5 border-accent border  relative">
                                     <span
-                                        className="absolute top-0 left-0 transform -translate-y-1/2 text-white bg-[#3b9687] px-1 rounded">{group.name}</span>
+                                        className="absolute top-0 left-0 transform -translate-y-1/2 text-white bg-white font-bold border-2 text-accent border-accent px-1 rounded">{group.name}</span>
                                     {group.balance !== null && (
                                         <span
                                             className={[
@@ -100,14 +100,14 @@ const SocialPage: NextPage = () => {
                             ))}
                         </div>
                         <div className="flex items-center justify-center">
-                                                <span className="w-10 h-10 bg-primary text-dark rounded-full items-center justify-center flex">
-                                                    <BiPlus className="w-7 h-7" />
+                                                <span className="w-10 h-10 bg-primary text-white rounded-full items-center justify-center flex">
+                                                    <BiPlus className="w-7 h-7 text-white" />
                                                 </span>
                         </div>
                     </div>
                     <div className="mt-5">
                         <div className="px-5 mb-5">
-                            <span className="text-xl px-2 py-0.5 bg-[#F2B0CF] rounded-lg">Your challenges</span>
+                            <span className="text-xl px-2 py-0.5 bg-[#EAEFFE] text-primary rounded-lg">Your challenges</span>
                             <div className="mt-10 grid grid-cols-3 gap-y-4 gap-x-3">
                                 {new Array(2).fill((
                                     <div className="rounded-lg relative flex items-end pt-20">
@@ -122,7 +122,7 @@ const SocialPage: NextPage = () => {
                                 ))}
                                 <div className="rounded-lg relative flex items-center justify-center border border-black/20">
 
-                                      <span className="w-10 h-10 bg-primary text-dark rounded-full items-center justify-center flex">
+                                      <span className="w-10 h-10 bg-primary text-white rounded-full items-center justify-center flex">
                                                     <BiPlus className="w-7 h-7" />
                                                 </span>
                                 </div>
@@ -131,7 +131,7 @@ const SocialPage: NextPage = () => {
                     </div>
                     <div className="mt-10">
                         <div className="px-5 mb-5">
-                            <span className="text-xl px-2 py-0.5 bg-[#5253B7] text-light rounded-lg">Your wishlist</span>
+                            <span className="text-xl px-2 py-0.5 bg-[#EAEFFE] text-primary rounded-lg">Your wishlist</span>
                             <table className="mt-5 align-middle w-full">
                                 {new Array(2).fill((
                                     <tr>
@@ -148,7 +148,7 @@ const SocialPage: NextPage = () => {
                                 ))}
                             </table>
                             <div className="border-black/20 rounded-lg flex items-center justify-center">
-                                 <span className="w-10 h-10 bg-primary text-dark rounded-full items-center justify-center flex">
+                                 <span className="w-10 h-10 bg-primary text-white rounded-full items-center justify-center flex">
                                                     <BiPlus className="w-7 h-7" />
                                                 </span>
                             </div>

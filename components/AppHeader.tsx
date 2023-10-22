@@ -17,7 +17,7 @@ const AppHeader = () => {
                 </div>
                 <div className="flex items-center justify-center">
                    <h3 className="font-primary font-semibold text-3xl">
-                       <span className="text-[#FEC051] text-5xl">4</span>
+                       <span className="text-primary text-5xl">4</span>
                        sigma
                    </h3>
                 </div>

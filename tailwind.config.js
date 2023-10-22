@@ -16,15 +16,16 @@ module.exports = {
       },
       fontFamily: {
         sans: '"Nunito"',
-        primary: '"Syne"'
+        primary: '"Poppins"'
       },
       colors: {
-        primary: '#FEC051',
-        secondary: '#B4B3EF',
-        accent: '#5A3851',
+        primary: '#3A71F9',
+        primaryLight: '#E7EDFE',
+        secondary: '#FDA53C',
+        accent: '#77D2A9',
         purple: '#7C70B8',
         dark: '#282930',
-        light: '#F3F0E9'
+        light: '#F3F3F3'
       },
       animation: {
         riseModal: "riseModal 0.8s ease",

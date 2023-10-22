@@ -16,11 +16,9 @@ const Start: NextPage = () => {
                 boxSizing: 'border-box'
             }}>
                 <div className="mt-5 grid gap-10">
-                    <h2 className=" text-center rounded-xl  text-light pb-2" style={{
-                        background: 'linear-gradient(90deg, rgba(181, 178, 241, 1) 13%, rgba(77, 55, 183, 1) 94%)'
-                    }}>
+                    <h2 className=" text-center rounded-xl text-primary bg-primaryLight">
                         <span className="font-primary text-6xl">1603</span>
-                         <span className="text-black/80 ml-2 text-xl text-light">PLN</span>
+                         <span className="text-black/80 ml-2 text-xl text-primary">PLN</span>
                     </h2>
                     <div className="">
                         <div className="flex justify-center">
@@ -29,7 +27,7 @@ const Start: NextPage = () => {
                         <div className="">
                             <div className="mt-5 flex justify-center">
                                 <div className="">
-                                    <button className="text-[#3B9687] px-4 py-1 text-light rounded-2xl flex items-center justify-center">
+                                    <button className="text-primary px-4 py-1 text-light rounded-2xl flex items-center justify-center">
                                         <BsBarChartLine className="w-7 h-7 mr-3" />
                                         <span className="font-bold text-xl">Explore</span>
                                     </button>
@@ -37,11 +35,11 @@ const Start: NextPage = () => {
                             </div>
                             <div className="mt-2">
                                 <div className="flex items-center justify-center">
-                                    <button className="bg-[#3B9687] px-4 py-1 text-light rounded-2xl flex items-center justify-center">
+                                    <button className=" px-4 py-1 border-2 border-accent rounded-2xl flex items-center justify-center">
                                         <BsArrowUpRight className="w-7 h-7 mr-3" />
                                         <span className="font-bold text-xl">Send</span>
                                     </button>
-                                    <button className="ml-3 bg-[#3B9687] px-4 py-1 text-light rounded-2xl flex items-center justify-center">
+                                    <button className="ml-3  px-4 py-1 border-2 border-accent text-black rounded-2xl flex items-center justify-center">
                                         <BsArrowDownRight className="w-7 h-7 mr-3" />
                                         <span className="font-bold text-xl">Ask</span>
                                     </button>
@@ -50,11 +48,11 @@ const Start: NextPage = () => {
                             <div className=""></div>
                         </div>
                     </div>
-                    <div className="">
-                        <div className=" py-1 rounded-t-lg bg-primary">
-                            <span className="block text-center text-[#504D81] font-primary font-bold px-5 py-0.5 bg-light/80 rounded-xl mx-20 mt-2">Your payments</span>
+                    <div className=" bg-white shadow-lg rounded-lg">
+                        <div className=" py-1 ">
+                            <span className="block text-center font-primary font-bold px-5 py-0.5 bg-light/80 rounded-xl mx-20 mt-2">Your payments</span>
                         </div>
-                        <div className="bg-light rounded-b-lg rounded-x-lg px-2 py-3 bg-primary">
+                        <div className=" px-2 py-3 ">
                             <div className="grid gap-2">
                                 {new Array(3).fill(<HistoryItem />)}
                             </div>
@@ -68,7 +66,7 @@ const Start: NextPage = () => {
                     <div className="flex items-end w-full h-full">
                       <div className="w-full flex flex-col">
                           <div className="max-h-[20vh] w-full">
-                              <Wave fill='rgba(241, 226, 223, 1)'
+                              <Wave fill='rgba(0, 0, 0, 0.01)'
                                     paused={false}
                                     style={{ display: 'flex', width: '100%' }}
                                     options={{
@@ -79,7 +77,7 @@ const Start: NextPage = () => {
                                     }}
                               />
                           </div>
-                          <div className="bg-[#f1e2df] h-[25vh] w-full"></div>
+                          <div className="bg-black/05 h-[25vh] w-full"></div>
                       </div>
                     </div>
                 </div>
