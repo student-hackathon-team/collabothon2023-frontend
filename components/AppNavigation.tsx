@@ -1,26 +1,48 @@
 import {BiChart, BiCog, BiHome, BiUser} from "react-icons/bi";
 import Link from "next/link";
+import {useRouter} from "next/router";
+import {HiSparkles} from "react-icons/hi2";
+
+const activeLinkClassName = 'text-primary'
+
+const links = [
+    {
+        href: '/',
+        icon: BiHome,
+        name: 'Start'
+    },
+    {
+        href: '/social',
+        icon: BiUser,
+        name: 'Social'
+    },
+    {
+        href: '/analytics',
+        icon: BiChart,
+        name: 'Analytics'
+    },
+    {
+        href: '/addons',
+        icon: HiSparkles,
+        name: 'Addons'
+    },
+]
 
 const AppNavigation = () => {
+    const {pathname} = useRouter();
+
     return (
         <nav className="fixed bottom-0 w-full h-12 bg-dark text-light border-t border-light/20 py-1">
             <div className="w-4/5 mx-auto grid grid-cols-4 h-full items-center">
-                <div className="flex justify-center">
-                    <Link href="/">
-                        <BiHome className="w-7 h-7" />
-                    </Link>
-                </div>
-                <div className="flex justify-center">
-                    <Link href="/social">
-                    <BiUser className="w-7 h-7" />
-                    </Link>
-                </div>
-                <div className="flex justify-center">
-                    <BiChart className="w-7 h-7" />
-                </div>
-                <div className="flex justify-center">
-                    <BiCog className="w-7 h-7" />
-                </div>
+                {
+                    links.map(({href, name, icon: Icon}) => (
+                        <div className="flex justify-center">
+                            <Link href={href} className={pathname === href ? activeLinkClassName : ''}>
+                                <Icon className="w-7 h-7" />
+                            </Link>
+                        </div>
+                    ))
+                }
             </div>
         </nav>
     )
