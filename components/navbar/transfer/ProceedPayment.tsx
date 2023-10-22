@@ -10,9 +10,9 @@ const ProceedPayment: React.FC<props> = (props) => {
   const [showFriends, setShowFriends] = useState<boolean>(false);
 
   return (
-    <div className="max-w-sm mx-auto font-primary text-dark  pb-30 absolute top-0 z-20  bg-black bg-opacity-20">
-      <div className="  backdrop-blur-md h-screen p-5 ">
-        <div className="animate-riseModal">
+    <div className=" mx-auto font-primary text-dark  pb-30 absolute w-full inset-0 z-20  bg-black bg-opacity-20">
+      <div className="  backdrop-blur-md h-screen w-full">
+        <div className="animate-riseModal p-5 w-full  max-w-sm mx-auto">
           <div className="w-full text-6xl text-center font-extrabold h-fit text-primary opacity-70 rounded-xl p-4 mb-6">
             Payment
           </div>

@@ -10,13 +10,11 @@ const RecordMedia: React.FC<props> = (props) => {
   const mainDiv = useRef(null);
   const videoRef = useRef(null);
 
-  useEffect(() => {
-    if (mainDiv.current === null) {
-      return;
-    }
-    setCamHeight(mainDiv.current!.offsetHeight);
-    setCamWidth(mainDiv.current!.offsetWidth);
-  }, [mainDiv.current]);
+  const [videoConstrains, setVideoConstraints] = useState<any>({
+    width: 1920,
+    height: 1080,
+    facingMode: "user",
+  });
 
   const [photoMade, setPhotoMade] = useState<boolean>(false);
 
@@ -25,8 +23,6 @@ const RecordMedia: React.FC<props> = (props) => {
   const [capturing, setCapturing] = useState(false);
   const [recordedChunks, setRecordedChunks] = useState([]);
   const [imgSrc, setImgSrc] = useState(null);
-  const [camHeight, setCamHeight] = useState<number>(0);
-  const [camWidht, setCamWidth] = useState<number>(0);
   const [videoUrl, setVideoUrl] = useState<any>();
 
   const [photoSelected, setPhotoSelected] = useState<boolean>(true);
@@ -106,22 +102,27 @@ const RecordMedia: React.FC<props> = (props) => {
     }
   }, [recordedChunks]);
 
-  let videoConstrains;
+  // let videoConstrains;
 
-  if (mainDiv) {
-    videoConstrains = {
-      width: camWidht,
-      height: camHeight,
+  useEffect(() => {
+    console.log("run");
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    setVideoConstraints({
+      width: width,
+      height: height,
       facingMode: "user",
-    };
-  }
+    });
+  }, []);
+
+  console.log(videoConstrains);
 
   return (
     <div
       className=" mx-auto border-2 h-screen  border-black w-full"
       ref={mainDiv}
     >
-      {camHeight && !photoMade && !(recordedChunks.length > 0) && (
+      {!photoMade && !(recordedChunks.length > 0) && (
         <Webcam
           className="overflow-hidden"
           ref={webcamRef}
