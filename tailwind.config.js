@@ -38,6 +38,7 @@ module.exports = {
         fadeIn: "fadeIn 0.5s linear",
         slideLeft: "slideLeft 0.5s ease-in-out",
         slideRight: "slideRight 0.5s ease-in-out",
+        rotate: "rotate 0.3s ease-in-out"
       },
       keyframes: {
         riseModal: {
@@ -88,6 +89,13 @@ module.exports = {
           "0%": {transform: "translateX(300px)"},
         "100%": {transform: "translateX(0px)"}
         },
+        rotate: {
+          "0%": {transform: "rotate(0deg)"},
+          "25%": {transform: "rotate(-20deg)"},
+          "50%": {transform: "rotate(0deg)"},
+          "75%": {transform: "rotate(20deg)"},
+          "100%": {transform: "rotate(0deg)"}
+        }
       },
     },
   },

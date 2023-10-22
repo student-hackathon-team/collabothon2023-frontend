@@ -99,10 +99,10 @@ const AnalyticsPage: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className="mt-10 flex items-center justify-center">
+        <div className="mt-10 flex items-center justify-center animate-slide1">
           <SpendingChart />
         </div>
-        <div className="mt-10 flex items-center justify-center">
+        <div className="mt-10 flex items-center justify-center animate-slide2">
           <RankingChart />
         </div>
       </div>

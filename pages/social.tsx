@@ -31,7 +31,7 @@ const SocialPage: NextPage = () => {
     <AppLayout>
       <div className="">
         <div
-          className="pt-8 pb-4 flex justify-center items-end"
+          className="pt-8 pb-4 flex justify-center items-end animate-slideDown"
           style={{
             background: "linear-gradient(to right, #ffe259, #ffa751)",
           }}
@@ -70,7 +70,7 @@ const SocialPage: NextPage = () => {
               Your groups
             </span>
           </div>
-          <div className="mt-8 grid gap-5">
+          <div className="mt-8 grid gap-5 animate-jump">
             {groups.map((group) => (
               <div className="rounded mx-5 border-accent border  relative">
                 <span className="absolute top-0 left-0 transform -translate-y-1/2 text-accent bg-white font-bold border-2 text-accent border-accent px-2 rounded">
@@ -124,7 +124,7 @@ const SocialPage: NextPage = () => {
                 Your challenges
               </span>
               <div className="mt-8 grid grid-cols-3 gap-y-4 gap-x-3">
-                <div className="rounded-lg relative flex items-end pt-20">
+                <div className="rounded-lg relative flex items-end pt-20 animate-fadeIn">
                   <img
                     src={runningImg.src}
                     alt=""
@@ -134,7 +134,7 @@ const SocialPage: NextPage = () => {
                     <span className="block font-bold text-sm">50 km/mo</span>
                   </div>
                 </div>
-                <div className="rounded-lg relative flex items-end pt-20">
+                <div className="rounded-lg relative flex items-end pt-20 animate-fadeIn">
                   <img
                     src={bikeImg.src}
                     alt=""
