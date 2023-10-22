@@ -1,7 +1,7 @@
 import {PiSticker, PiTextBBold} from "react-icons/pi";
 import {useState} from "react";
 import {BiCrop, BiText} from "react-icons/bi";
-import {BsArrowUp, BsPen, BsX} from "react-icons/bs";
+import {BsArrowLeft, BsArrowRight, BsArrowUp, BsPen, BsX} from "react-icons/bs";
 import {AiOutlineSound} from "react-icons/ai";
 import {MdOutlineTimer} from "react-icons/md";
 import Link from "next/link";
@@ -63,9 +63,10 @@ const Edit = () => {
                                 <span className="block text-sm text-center text-gray-600 mt-2">amount</span>
                             </div>
                             <div className="mt-5">
-                                <button className="rounded-lg bg-[#3A71F9] text-white font-bold px-6 py-2 block w-full">
+                                <Link href="/transfer/complete" className="rounded-lg bg-[#3A71F9] text-white font-bold px-6 py-2 block w-full flex items-center justify-center">
                                     Transfer
-                                </button>
+                                    <BsArrowRight className="w-5 h-5 ml-3" />
+                                </Link>
                             </div>
                         </div>
                     )
