@@ -1,5 +1,7 @@
-import { useCallback, useContext, useEffect, useRef, useState } from "react";
+import { useCallback, useContext, useLayoutEffect, useEffect, useRef, useState } from "react";
 import Webcam from "react-webcam";
+import {useRouter} from "next/router";
+import {BsX} from "react-icons/bs";
 
 type props = {
   setrecording: (arg: boolean) => void;
@@ -106,6 +108,8 @@ const RecordMedia: React.FC<props> = (props) => {
     }
   }, [recordedChunks]);
 
+  const router = useRouter()
+
   const setSizes = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
@@ -136,10 +140,12 @@ const RecordMedia: React.FC<props> = (props) => {
   // webcamRef.current.video.style.tran = "scale(" + heightRatio + ")";
 
   // let videoConstrains;
-  useEffect(() => {
+  useLayoutEffect(() => {
     webcamRef.current.video.style.transformOrigin = "top";
     // console.log(webcamRef.current);
-    setSizes();
+    setTimeout(() => {
+      setSizes();
+    }, 500)
     // console.log(webcamRef.current.vi);
     // const width = window.innerWidth;
     // const height = window.innerHeight;
@@ -299,14 +305,13 @@ const RecordMedia: React.FC<props> = (props) => {
           {!props.hideButtons && (
             <>
               <button
-                onClick={() => {
+                onClick={async () => {
                   window.URL.revokeObjectURL(videoUrl);
-                  setRecordedChunks([]);
-                  setVideoUrl("");
+                  await router.push('/')
                 }}
-                className="rounded-[50%] z-30 bg-accent bg-opacity-70 px-4 py-2 text-white fixed left-6 top-6 border-4 border-accent"
+                className="rounded-full z-30 bg-accent bg-opacity-70 px-4 py-2 text-white fixed left-6 top-6 border-4 border-accent"
               >
-                X
+                <BsX className="w-5 h-5" />
               </button>
 
               <div className="fixed z-30 bottom-28 w-full grid grid-cols-2 text center text-2xl text-white">
