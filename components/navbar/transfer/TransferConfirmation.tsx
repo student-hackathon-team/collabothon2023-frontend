@@ -32,7 +32,7 @@ const TransferConfirmation: React.FC<Props> = (props) => {
           @kieadik
         </div>
       </div>
-      <div className="fixed bottom-20 left-0 w-full max-w-sm">
+      <div className="fixed bottom-20 ml-[-1.25rem] w-full  max-w-sm">
         <div className="mx-auto w-fit flex flex-row gap-4">
           <button
             className="rounded-xl p-3 text-white bg-accent text-bold text-3xl"

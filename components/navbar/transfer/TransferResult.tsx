@@ -13,7 +13,7 @@ const TransferResult: React.FC<Props> = (props) => {
         </div>
         <div className="text-center p-6 text-4xl text-purple">SUCCESS</div>
       </div>
-      <div className="fixed bottom-20 left-0 w-full max-w-sm">
+      <div className="fixed bottom-20  ml-[-1.25rem]  w-full max-w-sm">
         <div className="mx-auto w-fit">
           <button
             className="rounded-xl p-3 text-white bg-purple text-bold text-4xl"
