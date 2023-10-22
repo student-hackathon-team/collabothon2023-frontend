@@ -108,6 +108,15 @@ const RecordMedia: React.FC<props> = (props) => {
     console.log("run");
     const width = window.innerWidth;
     const height = window.innerHeight;
+    window.addEventListener("resize", () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      setVideoConstraints({
+        width: width,
+        height: height,
+        facingMode: "user",
+      });
+    });
     setVideoConstraints({
       width: width,
       height: height,
