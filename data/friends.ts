@@ -7,9 +7,9 @@ export interface Friend {
 }
 
 export const exampleUser = {
-    name: 'Paloma',
+    name: 'Paloma Jones',
     username: 'paloma',
-    bitmojiSrc: palomaBitmoji
+    bitmojiSrc: palomaBitmoji.src
 }
 
 const friends: Friend[] = [

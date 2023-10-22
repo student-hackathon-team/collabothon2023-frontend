@@ -36,7 +36,7 @@ const AppLayout: FC = ({children}) => {
 
     return (
         <div className={[
-            "w-full min-h-full flex items-center justify-center",
+            "w-full min-h-full",
             isDesktop ? 'bg-gray-900' : ''
         ].join(' ')}>
             {

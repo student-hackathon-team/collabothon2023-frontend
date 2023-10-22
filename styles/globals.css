@@ -34,3 +34,7 @@ a {
     background: black;
   }
 }
+
+.frame-viewport > div {
+  height: 100%;
+}
