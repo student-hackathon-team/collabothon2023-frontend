@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const AppHeader = () => {
     return (
-        <header className="sticky z-10 top-0 left-0 w-full h-16 border-b  border-gray-300 bg-white text-black">
+        <header className="fixed z-10 top-0 left-0 w-full h-16 border-b  border-gray-300 bg-white text-black">
             <div className="h-full grid grid-cols-3 px-5">
                 <div className="flex items-center">
                     <div className="relative">
