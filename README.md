@@ -1,5 +1,7 @@
 # 4sigma - application frontend
 
+DEMO: https://4sigma.micorix.dev
+
 ## Docs
 
 ### Current stack / implementation
