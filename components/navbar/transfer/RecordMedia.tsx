@@ -10,6 +10,10 @@ const RecordMedia: React.FC<props> = (props) => {
   const mainDiv = useRef(null);
   const videoRef = useRef(null);
 
+  const [heightBigger, setHeightBigger] = useState<boolean>(true);
+  const [heightRatio, setHeightRatio] = useState<number>(0);
+  const [widthRatio, setWidthRatio] = useState<number>(0);
+
   const [videoConstrains, setVideoConstraints] = useState<any>({
     width: 1920,
     height: 1080,
@@ -105,56 +109,90 @@ const RecordMedia: React.FC<props> = (props) => {
   const setSizes = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    const camHeight = webcamRef.current.props.videoConstraints.height;
-    const camWidth = webcamRef.current.props.videoConstraints.width;
-    const heightRatio = height / camHeight;
-    const newHeight = height;
-    const newWidth = camWidth / heightRatio;
-    webcamRef.current.height = newHeight;
-    webcamRef.current.width = newWidth;
+    const camHeight = webcamRef.current.video.clientHeight;
+    const camWidth = webcamRef.current.video.offsetWidth;
+    console.log(webcamRef.current.video.transformOrigin);
+    if (camHeight < height) {
+      setHeightBigger(true);
+      const heightRatio = height / camHeight;
+      setHeightRatio(heightRatio);
+      const trans = (height - camHeight) / 2;
+      console.log(webcamRef.current.video.style);
+      console.log(height, camHeight, heightRatio, trans);
+      webcamRef.current.video.style.transform =
+        "scale(" + heightRatio + ") translateY(" + 0 + "px)";
+      console.log(webcamRef.current.video.transformOrigin);
+    } else if (camWidth < width) {
+      setHeightBigger(false);
+      const widthRatio = width / camWidth;
+      setWidthRatio(widthRatio);
+      const trans = (width - camWidth) / 5.5;
+      console.log(webcamRef.current.video.style);
+      console.log(width, camWidth, widthRatio, trans);
+      webcamRef.current.video.style.transform =
+        "scale(" + widthRatio + ") translatex(0px)";
+    }
   };
+  // webcamRef.current.video.style.tran = "scale(" + heightRatio + ")";
 
   // let videoConstrains;
   useEffect(() => {
-    console.log("run");
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+    webcamRef.current.video.style.transformOrigin = "top";
+    // console.log(webcamRef.current);
     setSizes();
+    // console.log(webcamRef.current.vi);
+    // const width = window.innerWidth;
+    // const height = window.innerHeight;
+    // setSizes();
     window.addEventListener("resize", () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
       setSizes();
-      setVideoConstraints({
-        width: width,
-        height: height,
-        facingMode: "user",
-      });
     });
-    setVideoConstraints({
-      width: width,
-      height: height,
-      facingMode: "user",
-    });
-  }, [webcamRef.current]);
+    //   const width = window.innerWidth;
+    //   const height = window.innerHeight;
+    //   setSizes();
+    //   setVideoConstraints({
+    //     width: width,
+    //     height: height,
+    //     facingMode: "user",
+    //   });
+    // });
+    // setVideoConstraints({
+    //   width: width,
+    //   height: height,
+    //   facingMode: "user",
+    // });
+  }, [mainDiv.current]);
 
   console.log(videoConstrains);
 
   return (
     <div
-      className=" mx-auto border-2 h-screen  border-black w-full"
+      className=" mx-auto border-2 h-screen  border-black w-full overflow-hidden"
       ref={mainDiv}
     >
       {!photoMade && !(recordedChunks.length > 0) && (
-        <Webcam
-          className="overflow-hidden"
-          ref={webcamRef}
-          mirrored={true}
-          videoConstraints={videoConstrains}
-          forceScreenshotSourceSize={true}
-          screenshotFormat="image/jpeg"
+        <div style={{ transform: "scaleX(-1)" }}>
+          <Webcam
+            className="overflow-hidden"
+            ref={webcamRef}
+            mirrored={true}
+            videoConstraints={videoConstrains}
+            forceScreenshotSourceSize={true}
+            screenshotFormat="image/jpeg"
+          />
+        </div>
+      )}
+      {photoMade && imgSrc && (
+        <img
+          style={{
+            transform: heightBigger
+              ? "scale(" + heightRatio + ") translateY(" + 0 + "px)"
+              : "scale(" + heightRatio + ") translateY(" + 0 + "px)",
+            transformOrigin: "top",
+          }}
+          src={imgSrc}
         />
       )}
-      {photoMade && imgSrc && <img src={imgSrc} />}
       {!photoMade && !(recordedChunks.length > 0) && (
         <>
           <div className="fixed z-30 bottom-32 w-full">
@@ -245,6 +283,12 @@ const RecordMedia: React.FC<props> = (props) => {
         <>
           <div style={{ transform: "scaleX(-1)" }}>
             <video
+              style={{
+                transform: heightBigger
+                  ? "scale(" + heightRatio + ") translateY(" + 0 + "px)"
+                  : "scale(" + heightRatio + ") translateY(" + 0 + "px)",
+                transformOrigin: "top",
+              }}
               src={videoUrl}
               ref={videoRef}
               loop={true}
