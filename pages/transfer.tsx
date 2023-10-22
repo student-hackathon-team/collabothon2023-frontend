@@ -6,17 +6,35 @@ import Navbar from "../components/navbar/Navbar";
 import ReactPlayer from "react-player";
 import RecordMedia from "../components/navbar/transfer/RecordMedia";
 import ProceedPayment from "../components/navbar/transfer/ProceedPayment";
+import TransferConfirmation from "../components/navbar/transfer/TransferConfirmation";
+import TransferResult from "../components/navbar/transfer/TransferResult";
 
 const Transfer: NextPage = () => {
   const [recordingMedia, setRecordingMedia] = useState<boolean>(true);
+  const [askToConfirm, setAskToConfirm] = useState<boolean>(false);
+  const [showResult, setShowResult] = useState<boolean>(false);
 
   return (
     <div>
-      <RecordMedia
-        setrecording={setRecordingMedia}
-        hideButtons={!recordingMedia}
-      />
-      {!recordingMedia && <ProceedPayment setrecording={setRecordingMedia} />}
+      {!askToConfirm && !showResult && (
+        <RecordMedia
+          setrecording={setRecordingMedia}
+          hideButtons={!recordingMedia}
+        />
+      )}
+      {!recordingMedia && !askToConfirm && !showResult && (
+        <ProceedPayment
+          setrecording={setRecordingMedia}
+          setAskToConfirm={setAskToConfirm}
+        />
+      )}
+      {!recordingMedia && askToConfirm && !showResult && (
+        <TransferConfirmation
+          setShowResult={setShowResult}
+          setAskToConfirm={setAskToConfirm}
+        />
+      )}
+      {!recordingMedia && !askToConfirm && showResult && <TransferResult />}
       {/* <Navbar /> */}
     </div>
   );

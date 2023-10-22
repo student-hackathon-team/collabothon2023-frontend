@@ -1,12 +1,13 @@
-import { useRouter } from "next/router";
 import { useState } from "react";
 import FriendsList from "./FriendsList";
 
-type props = { setrecording: (arg: boolean) => void };
+type props = {
+  setrecording: (arg: boolean) => void;
+  setAskToConfirm: (arg: boolean) => void;
+};
 
 const ProceedPayment: React.FC<props> = (props) => {
   const [showFriends, setShowFriends] = useState<boolean>(false);
-  const router = useRouter();
 
   return (
     <div className="max-w-sm mx-auto font-primary text-dark  pb-30 absolute top-0 z-20  bg-black bg-opacity-20">
@@ -57,7 +58,7 @@ const ProceedPayment: React.FC<props> = (props) => {
             <button
               className="rounded-xl p-2 bg-primary"
               onClick={() => {
-                router.push("/");
+                props.setAskToConfirm(true);
               }}
             >
               Proceed
