@@ -6,7 +6,8 @@ DEMO: https://4sigma.micorix.dev
 
 ### Current stack / implementation
 
-* We implemented our frontend using TypeScript, React NextJS.
+* We implemented our frontend using TypeScript, React NextJS
+* Initial backend (not further developed, cause of time) -> https://github.com/student-hackathon-team/collabothon2023-backend
 
 ### Target state / stack
 
