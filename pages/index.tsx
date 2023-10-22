@@ -7,6 +7,7 @@ import BitmojiChart from "../components/StartPage/BitmojiChart";
 import kubaBitmoji from '../../assets/img/bitmojis/kuba_bitmoji.png'
 import Section from "../components/Section";
 import Wave from "react-wavify";
+import {BsArrowDownRight, BsArrowUpRight, BsBarChart, BsBarChartLine} from "react-icons/bs";
 
 const Start: NextPage = () => {
   return (
@@ -18,15 +19,35 @@ const Start: NextPage = () => {
                     <h2 className=" text-center rounded-xl  text-light pb-2" style={{
                         background: 'linear-gradient(90deg, rgba(181, 178, 241, 1) 13%, rgba(77, 55, 183, 1) 94%)'
                     }}>
-                        <span className="font-primary text-6xl">2137</span>
+                        <span className="font-primary text-6xl">1603</span>
                          <span className="text-black/80 ml-2 text-xl text-light">PLN</span>
                     </h2>
-                    <SpendingChart />
-                    <div className="mt-10">
-                        <div className="grid grid-cols-3">
-                            <div className="">
-                                <button className="bg-dark px-4 py-0.5 text-light rounded-2xl">Send money</button>
+                    <div className="">
+                        <div className="flex justify-center">
+                            <SpendingChart />
+                        </div>
+                        <div className="">
+                            <div className="mt-5 flex justify-center">
+                                <div className="">
+                                    <button className="text-[#3B9687] px-4 py-1 text-light rounded-2xl flex items-center justify-center">
+                                        <BsBarChartLine className="w-7 h-7 mr-3" />
+                                        <span className="font-bold text-xl">Explore</span>
+                                    </button>
+                                </div>
                             </div>
+                            <div className="mt-2">
+                                <div className="flex items-center justify-center">
+                                    <button className="bg-[#3B9687] px-4 py-1 text-light rounded-2xl flex items-center justify-center">
+                                        <BsArrowUpRight className="w-7 h-7 mr-3" />
+                                        <span className="font-bold text-xl">Send</span>
+                                    </button>
+                                    <button className="ml-3 bg-[#3B9687] px-4 py-1 text-light rounded-2xl flex items-center justify-center">
+                                        <BsArrowDownRight className="w-7 h-7 mr-3" />
+                                        <span className="font-bold text-xl">Ask</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div className=""></div>
                         </div>
                     </div>
                     <div className="">

@@ -10,7 +10,7 @@ const AppHeader = () => {
                     <div className="relative">
                         <img className="w-10 object-contain rounded-full border-primary border-2" src={palomaBitmoji.src} alt=""/>
                         <span className="block absolute bottom-1 left-3/4 px-1 py-0.5 bg-accent text-primary text-xs rounded-xl text">
-                            -21
+                            42.0
                         </span>
                     </div>
 
