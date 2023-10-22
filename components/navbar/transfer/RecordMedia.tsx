@@ -103,11 +103,18 @@ const RecordMedia: React.FC<props> = (props) => {
   }, [recordedChunks]);
 
   // let videoConstrains;
-
   useEffect(() => {
     console.log("run");
     const width = window.innerWidth;
     const height = window.innerHeight;
+    const camHeight = webcamRef.current.props.videoConstraints.height;
+    const camWidth = webcamRef.current.props.videoConstraints.width;
+    const heightRatio = height / camHeight;
+    const newHeight = height;
+    const newWidth = camWidth / heightRatio;
+    webcamRef.current.height = newHeight;
+    webcamRef.current.width = newWidth;
+    console.log(newHeight, newWidth);
     window.addEventListener("resize", () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
