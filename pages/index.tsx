@@ -7,6 +7,7 @@ import BitmojiChart from "../components/StartPage/BitmojiChart";
 import kubaBitmoji from '../../assets/img/bitmojis/kuba_bitmoji.png'
 import Section from "../components/Section";
 import Wave from "react-wavify";
+import {BsArrowDownRight, BsArrowUpRight, BsBarChart, BsBarChartLine} from "react-icons/bs";
 
 const Start: NextPage = () => {
   return (
@@ -15,18 +16,43 @@ const Start: NextPage = () => {
                 boxSizing: 'border-box'
             }}>
                 <div className="mt-5 grid gap-10">
-                    <h2 className=" text-center rounded-xl bg-purple text-light pb-2">
-                        <span className="font-primary text-6xl">2137</span>
-                         <span className="text-black/80 ml-2 text-xl text-light">PLN</span>
+                    <h2 className=" text-center rounded-xl text-primary bg-primaryLight">
+                        <span className="font-primary text-6xl">1603</span>
+                         <span className="text-black/80 ml-2 text-xl text-primary">PLN</span>
                     </h2>
-                    <Section title="Expenses">
-                        <SpendingChart />
-                    </Section>
                     <div className="">
-                        <div className="border-t border-x border-primary py-1 rounded-t-lg bg-primary">
-                            <span className="block text-center text-accent font-primary">Your payments</span>
+                        <div className="flex justify-center">
+                            <SpendingChart />
                         </div>
-                        <div className="bg-light rounded-b-lg rounded-x-lg px-2 py-3">
+                        <div className="">
+                            <div className="mt-5 flex justify-center">
+                                <div className="">
+                                    <button className="text-primary px-4 py-1 text-light rounded-2xl flex items-center justify-center">
+                                        <BsBarChartLine className="w-7 h-7 mr-3" />
+                                        <span className="font-bold text-xl">Explore</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="mt-2">
+                                <div className="flex items-center justify-center">
+                                    <button className=" px-4 py-1 border-2 border-accent rounded-2xl flex items-center justify-center">
+                                        <BsArrowUpRight className="w-7 h-7 mr-3" />
+                                        <span className="font-bold text-xl">Send</span>
+                                    </button>
+                                    <button className="ml-3  px-4 py-1 border-2 border-accent text-black rounded-2xl flex items-center justify-center">
+                                        <BsArrowDownRight className="w-7 h-7 mr-3" />
+                                        <span className="font-bold text-xl">Ask</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div className=""></div>
+                        </div>
+                    </div>
+                    <div className=" bg-white shadow-lg rounded-lg">
+                        <div className=" py-1 ">
+                            <span className="block text-center font-primary font-bold px-5 py-0.5 bg-light/80 rounded-xl mx-20 mt-2">Your payments</span>
+                        </div>
+                        <div className=" px-2 py-3 ">
                             <div className="grid gap-2">
                                 {new Array(3).fill(<HistoryItem />)}
                             </div>
@@ -40,7 +66,7 @@ const Start: NextPage = () => {
                     <div className="flex items-end w-full h-full">
                       <div className="w-full flex flex-col">
                           <div className="max-h-[20vh] w-full">
-                              <Wave fill='rgba(0, 0, 0, 0.2)'
+                              <Wave fill='rgba(0, 0, 0, 0.01)'
                                     paused={false}
                                     style={{ display: 'flex', width: '100%' }}
                                     options={{
@@ -51,7 +77,7 @@ const Start: NextPage = () => {
                                     }}
                               />
                           </div>
-                          <div className="bg-black/20 h-[25vh] w-full"></div>
+                          <div className="bg-black/05 h-[25vh] w-full"></div>
                       </div>
                     </div>
                 </div>

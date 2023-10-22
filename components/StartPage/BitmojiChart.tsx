@@ -9,13 +9,13 @@ const BitmojiChart = () => {
                     (
                         <div className="">
                             <div className="flex items-end justify-center mb-2 border-b h-16">
-                                <div className="w-[5px] block from-secondary to-purple bg-gradient-to-t rounded-xl" style={{
+                                <div className="w-[5px] block  bg-primary rounded-xl" style={{
                                     height: `${faker.number.int({ min: 20, max: 100 })}%`
                                 }}></div>
                             </div>
                             <div className="">
                                 <img src={palomaBitmoji.src} alt=""
-                                     className="rounded-full w-10 aspect-square border border-purple bg-light"/>
+                                     className="rounded-full w-10 aspect-square border border-primary bg-light"/>
                             </div>
                         </div>
                     )
