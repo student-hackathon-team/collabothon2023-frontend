@@ -122,7 +122,7 @@ const RecordMedia: React.FC<props> = (props) => {
       height: height,
       facingMode: "user",
     });
-  }, []);
+  }, [webcamRef.current]);
 
   console.log(videoConstrains);
 
